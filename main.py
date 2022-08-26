@@ -61,6 +61,7 @@ def get_vga(service=None):
         service.stop()
     return dict_produtos
 
+
 # insert into database
 def insert_db(dict_produtos):
     con = sqlite3.connect("./database/price_vga.db")
