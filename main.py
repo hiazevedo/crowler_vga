@@ -34,11 +34,11 @@ def get_vga(service=None):
             trata_valor = element.find_element(By.XPATH, 'p[3]').text
             resultado = re.search(r"([\d,\\.]+)", trata_valor)
 
-            a = resultado.group(1)
-            a = a.replace('.', '')
-            a = a.replace(',', '.')
+            r = resultado.group(1)
+            r = r.replace('.', '')
+            r = r.replace(',', '.')
 
-            valor = float(a)
+            valor = float(r)
             pcupomdes = element.find_elements(By.XPATH, 'p[4][@class="cupomdesc"]')
             if len(pcupomdes) == 0:
                 cupom_desconto = None
@@ -69,7 +69,6 @@ def insert_db(dict_produtos):
     con.commit()
     con.close()
 
-    # print(dict_produtos.values())
 
 # bloco principal
 lista = get_vga(service)
