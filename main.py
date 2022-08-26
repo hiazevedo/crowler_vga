@@ -26,6 +26,8 @@ def get_vga(service=None):
 
         lista = driver.find_elements(By.XPATH, '//*[@id="lista-ofertas"]/li/a')
 
+        print('===== Coletando lista de VGA =====')
+
         for element in lista:
             link = element.get_attribute('href')
             nome = element.find_element(By.XPATH, 'p[1]').text
@@ -63,9 +65,12 @@ def get_vga(service=None):
 def insert_db(dict_produtos):
     con = sqlite3.connect("./database/price_vga.db")
 
+    print('===== Insert data into database =====')
+
     cur = con.cursor()
     for dict_produto in dict_produtos:
-        cur.execute("INSERT INTO placas VALUES( ?, ?, ?, ?, ?, ?, datetime('now','localtime') )", tuple(dict_produto.values()))
+        cur.execute("INSERT INTO placas VALUES( ?, ?, ?, ?, ?, ?, datetime('now','localtime') )",
+                    tuple(dict_produto.values()))
     con.commit()
     con.close()
 
