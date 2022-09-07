@@ -12,7 +12,7 @@ def get_vga(service=None):
     op.add_argument('--disable-dev-shm-usage')
     op.add_argument("--remote-debugging-port=9222")
 
-    chromedriver_path = "/home/higor/Documentos/higor/python/crowler_vga/webdriver/chromedriver"
+    chromedriver_path = "/home/higor/Documentos/projetos/crowler_vga/webdriver/chromedriver"
 
     service = service.Service(chromedriver_path)
     service.start()
