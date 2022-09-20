@@ -68,8 +68,8 @@ def get_vga(service=None):
                                   'link': link
                                   })
 
-
             print(f'===== Coletando {modelo} =====')
+
     finally:
         driver.close()
         service.stop()
